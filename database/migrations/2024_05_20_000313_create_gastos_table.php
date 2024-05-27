@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('categori_id');
             $table->double('cantidad');
+            $table->string('description',200)->default('');
+            $table->date('date');
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('categori_id')->references('id')->on('categories')->onDelete('CASCADE');

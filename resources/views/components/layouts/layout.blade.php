@@ -8,6 +8,7 @@
     </head>
     <body class=" bg-slate-200">
         <x-navbar/>
+        <x-alert/>
         <main class="max-w-7xl m-auto pt-7 pb-5 px-2 sm:px-0">
             {{$content}}
         </main>

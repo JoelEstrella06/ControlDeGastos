@@ -22,6 +22,21 @@
                 </x-slot>
             </x-label>
         </div>
+        <div class="mt-2">
+            <x-label for="fecha" value="{{__('Fecha')}}" required>
+                <x-slot name="input">
+                    <x-input type="date" wire:model='fecha'/>
+                    <x-input-error for="fecha"/>
+                </x-slot>
+            </x-label>
+        </div>
+        <div>
+            <x-label for="description" value="{{__('Descripción')}}">
+                <x-slot name="input">
+                    <textarea class="border rounded-lg w-full resize-none p-2" name="" id="" cols="20" rows="5" wire:model='description'></textarea>
+                </x-slot>
+            </x-label>
+        </div>
     </x-slot>
     <x-slot name="ButtonAction">
         <button wire:click="newRegistro" type="button" class="bg-green-700 text-green-200 px-2 py-1 rounded-md hover:bg-green-800 transition-colors duration-300">Registrar</button>
