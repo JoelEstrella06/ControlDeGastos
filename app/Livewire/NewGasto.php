@@ -38,12 +38,13 @@ class NewGasto extends Component
             $gasto->date=$this->fecha;
             $gasto->save();
             session()->flash('success','registro guardado con éxito.');
+            return redirect(request()->header('Referer'));
         }
         catch(Exception $error){
             session('error','Ha ocurrido un error al guardar el registro.');
+            return redirect(request()->header('Referer'));
         }
 
-        return to_route('home');
     }
     public function render()
     {

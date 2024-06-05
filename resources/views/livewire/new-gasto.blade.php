@@ -6,7 +6,7 @@
         <div class="flex gap-3 flex-wrap sm:flex-nowrap">
             <x-label for="category" value="{{__('Categoría')}}" required>
                 <x-slot name="input">
-                    <select name="category" id="category" class="border rounded-lg px-2 py-1" wire:model.blur='category'>
+                    <select name="category" id="category" class="border rounded-lg px-2 py-1" wire:model='category'>
                         <option hidden>Seleccionar categoría</option>
                         @foreach ($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
@@ -17,7 +17,7 @@
             </x-label>
             <x-label for="cant" value="{{__('Monto invertido')}}" required>
                 <x-slot name="input">
-                    <x-input type="number" min="1" step="any" wire:model.blur='monto'/>
+                    <x-input type="number" min="1" step="any" wire:model='monto'/>
                     <x-input-error for="monto"/>
                 </x-slot>
             </x-label>
