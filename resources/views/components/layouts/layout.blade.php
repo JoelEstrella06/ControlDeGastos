@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Gestor de gastos</title>
-        @vite('resources/css/app.css')
+        @vite(['resources/css/app.css','resources/js/app.js'])
     </head>
-    <body class=" bg-slate-200">
+    <body class=" bg-gradient-to-r from-slate-200  to-slate-500 ">
         <x-navbar/>
         <x-alert/>
         <main class="max-w-7xl m-auto pt-7 pb-5 px-2 sm:px-0">
