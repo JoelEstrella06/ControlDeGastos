@@ -1,7 +1,5 @@
-<div  class="border my-4 h-80 w-full bg-slate-100 rounded-lg">
-    <div id="year" class="my-4 h-80 w-full px-2" wire:ignore>
+<div id="year" class="my-4 h-80 w-full" wire:ignore>
 
-    </div>
 </div>
 @script
 <script>
@@ -10,7 +8,10 @@
         const myChart = echarts.init(chartDom);
         const option={
                 title:{
-                    text:'Gastos del año en curso'
+                    text:'Desglose por mes',
+                    textStyle:{
+                        fontSize:15
+                    }
                 },
                 tooltip:{
                     trigger:'axis',
@@ -28,7 +29,7 @@
                 series: [
                     {
                     data: $wire.data,
-                    type: 'bar'
+                    type: 'line'
                     }
                 ]
             };

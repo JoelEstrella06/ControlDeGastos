@@ -12,10 +12,11 @@ class Categories extends Model
 {
     use HasFactory;
     //scope para gastos del mes
-
-    public function scopeGastosMes(Builder $query, $date=''):void
+    public function scopeGastosMes(Builder $query, $date=null):void
     {
-        $fecha=Carbon::create($date);
+        $date!=null
+        ?$fecha=Carbon::create($date)
+        :$fecha=Carbon::now();
         $rango= [$fecha->startOfMonth()->toDateString(),$fecha->endOfMonth()->toDateString()];
         $query->whereHas('gastos',function(Builder $gasto)use($rango){
             $gasto->whereBetween('date',$rango);
