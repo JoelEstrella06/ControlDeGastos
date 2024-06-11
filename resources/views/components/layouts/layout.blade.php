@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Gestor de gastos</title>
-        @if (request()->routeIs('home'))
+        @vite(['resources/css/app.css'])
+        {{-- @if (request()->routeIs('home'))
             @vite(['resources/css/app.css'])
         @else
             @vite(['resources/css/app.css','resources/js/app.js'])  
-        @endif
+        @endif --}}
     </head>
     <body class=" bg-gradient-to-r from-slate-200  to-slate-500 ">
         <x-navbar/>

@@ -1,4 +1,4 @@
-@props(['tittle'=>''])
+@props(['tittle'=>'','ButtonAction'=>''])
 <div x-data="{ modelOpen: false }">
     <div class="w-fit" @click="modelOpen =!modelOpen">
         {{$button}}
@@ -13,7 +13,8 @@
                 x-transition:leave-start="opacity-100" 
                 x-transition:leave-end="opacity-0"
                 class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40" aria-hidden="true"
-            ></div>
+            >
+            </div>
 
             <div x-cloak x-show="modelOpen" 
                 x-transition:enter="transition ease-out duration-300 transform"
@@ -45,3 +46,4 @@
             </div>
         </div>
     </div>
+</div>

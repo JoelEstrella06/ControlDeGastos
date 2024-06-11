@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Gastos;
 
 use App\Models\Categories;
 use App\Models\Gastos;
@@ -48,6 +48,6 @@ class NewGasto extends Component
     }
     public function render()
     {
-        return view('livewire.new-gasto');
+        return view('livewire.gastos.new-gasto');
     }
 }

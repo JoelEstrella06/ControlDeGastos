@@ -3,7 +3,7 @@
         <ul class=" flex gap-2">
             <x-NavElement/>
             <x-NavElement href="gastos" text="Listado de gastos"/>
-            <x-NavElement href="conf" text="Ajustes"/>
+            <x-NavElement href="categorias" text="Categorías"/>
         </ul>
     </nav>
 </header>

@@ -13,5 +13,5 @@ Route::controller(GastosController::class)->group(function(){
     Route::get('/gastos','index')->name('gastos');
 });
 Route::controller(SettingsController::class)->group(function (){
-    Route::get('/config','config')->name('conf');
+    Route::get('/categorias','index')->name('categorias');
 });
