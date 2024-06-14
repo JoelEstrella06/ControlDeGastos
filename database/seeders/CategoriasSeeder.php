@@ -14,16 +14,20 @@ class CategoriasSeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            'name'=>'Alimentos'
+            'name'=>'Alimentos',
+            'color'=>fake()->hexColor()
         ]);
         DB::table('categories')->insert([
-            'name'=>'Gastos médicos'
+            'name'=>'Gastos médicos',
+            'color'=>fake()->hexColor()
         ]);
         DB::table('categories')->insert([
-            'name'=>'Transporte'
+            'name'=>'Transporte',
+            'color'=>fake()->hexColor()
         ]);
         DB::table('categories')->insert([
-            'name'=>'Otros'
+            'name'=>'Otros',
+            'color'=>fake()->hexColor()
         ]);
     }
 }

@@ -1,26 +1,26 @@
-<x-layouts.layout>
-    <x-slot name="content">
-        <section class="mb-3 flex gap-4">
-            @livewire('gastos.newgasto')
-        </section>
-        <section class="px-2 sm:px-4 py-4 bg-slate-100 rounded-lg">
-            <livewire:gastos.table-gastos />
-            {{-- <form action="{{to_route('gastos.search')}}">
-                <select name="category" id="category" wire:model.live='category'>
-                    <option value="">Todos</option>
-                    @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
-                    @endforeach
-                </select>
-            </form>
-            <x-table class="grid-cols-3">
-                <x-slot name="header">
-                    <x-table-cell content="Categoría"/>
-                    <x-table-cell content="Monto"/>
-                    <x-table-cell content="Fecha"/>
-                </x-slot>
-                <x-slot name="body">
-                    @foreach ($data as $gasto)
+<div>
+    <div class="flex flex-wrap justify-between items-center">
+        <h1 class="font-bold text-2xl mb-4">Gastos registrados</h1>
+        <div class="flex gap-2">
+            <livewire:docs.dowload-gastos-doc/>
+            <select name="category" id="category" wire:model.live='category' class="border p-1 rounded-lg">
+                <option value="">Todos</option>
+                @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    @if ($this->data->count() > 0)
+        <x-table class="grid-cols-3">
+            <x-slot name="header">
+                <x-table-cell content="Categoría"/>
+                <x-table-cell content="Monto"/>
+                <x-table-cell content="Fecha"/>
+            </x-slot>
+            <x-slot name="body">
+                @foreach ($this->data as $gasto)
+                    <div wire:key='row_{{$gasto->id}}'>
                         <x-table-body-row class="grid-cols-3">
                             <x-slot name="labels">
                                 <x-table-cell content="Categoría"/>
@@ -40,19 +40,23 @@
                                                 </button>
                                             </x-slot>
                                             <x-slot name="options">
-                                                @livewire('gastos.detail-gasto',['id'=>$gasto->id],key($gasto->id))
-                                                @livewire('gastos.delete-gasto',['id'=>$gasto->id],key($gasto->id))
+                                                <livewire:gastos.detail-gasto :id="$gasto->id" :key="'info'.$gasto->id"/>
+                                                <livewire:gastos.delete-gasto :id="$gasto->id" :key="'del'.$gasto->id"/>
                                             </x-slot>
                                         </x-options>
                                     </x-slot>
                                 </x-table-cell>
                             </x-slot>
                         </x-table-body-row>
-                    @endforeach
-                </x-slot>
-            </x-table> --}}
-            
-            {{-- {{$data->links()}} --}}
-        </section>
-    </x-slot>
-</x-layouts.layout>
+                    </div>
+                @endforeach
+            </x-slot>
+        </x-table>
+    @else
+        <div class="text-slate-400 flex flex-col items-center">
+            <x-icons.folder-open class="size-32"/>
+            <h3 class="font-medium text-xl">No se encontraron registros asociados.</h3>
+        </div>
+    @endif
+    {{$this->data->links()}}
+</div>

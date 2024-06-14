@@ -19,7 +19,7 @@
                                 <x-table-cell content="Monto total"/>
                             </x-slot>
                             <x-slot name="cells">
-                                <x-table-cell content='{{$category->name}}'/>
+                                <x-table-cell style="color:{{$category->color}};" class="font-medium" content='{{$category->name}}'/>
                                 <x-table-cell content="${{number_format($category->gastos->sum('cantidad')??0,2)}}"/>
                                 <x-table-cell class="flex justify-center items-center sm:px-0 absolute top-0 sm:bottom-0 right-0 sm:right-4">
                                     <x-slot name="content">
@@ -30,7 +30,7 @@
                                                 </button>
                                             </x-slot>
                                             <x-slot name="options">
-                                                {{-- @livewire('gastos.detail-gasto',['id'=>$category->id],key('d'.$category->id)) --}}
+                                                @livewire('categories.edit-category',['id'=>$category->id],key('ed'.$category->id))
                                                 @livewire('categories.delete-category',['id'=>$category->id],key('el'.$category->id))
                                             </x-slot>
                                         </x-options>

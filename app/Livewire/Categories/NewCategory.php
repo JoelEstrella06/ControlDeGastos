@@ -11,12 +11,14 @@ class NewCategory extends Component
 {
     #[Validate('required',message:'Ingrese un nombre para la categoría.')]
     public $name;
+    public $color="#312E81";
 
     public function newCategory(){
         $this->validate();
         try{
             $reg=new Categories();
             $reg->name=$this->name;
+            $reg->color=$this->color;
             $reg->save();
             session()->flash('success','Nueva categoría registrada.');
             return redirect(request()->header('referer'));

@@ -10,7 +10,7 @@
             <div class="flex flex-wrap gap-3">
                 <div class="felx gap-2">
                     <span class="font-medium">Categoría: </span>
-                    <span>{{$data->categoria->name}}</span>
+                    <span class="font-medium" style="color: {{$data->categoria->color}};">{{$data->categoria->name}}</span>
                 </div>
                 <div class="felx gap-2">
                     <span class="font-medium">Fecha: </span>

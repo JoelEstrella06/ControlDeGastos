@@ -11,6 +11,7 @@ Route::controller(HomeController::class)->group(function(){
 });
 Route::controller(GastosController::class)->group(function(){
     Route::get('/gastos','index')->name('gastos');
+    Route::get('gastos/search','search')->name('gastos.search');
 });
 Route::controller(SettingsController::class)->group(function (){
     Route::get('/categorias','index')->name('categorias');
