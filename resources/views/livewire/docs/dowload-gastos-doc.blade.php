@@ -1,4 +1,4 @@
-<x-modal>
+<x-modal tittle="Reporte de gastos">
     <x-slot name="button">
         <button class="p-2 bg-white rounded-lg border hover:bg-slate-200 transition-colors duration-300">
             <x-icons.excel class="size-6"/>
@@ -21,9 +21,9 @@
         
     </x-slot>
     <x-slot name="ButtonAction">
-        <button wire:click="genDoc" wire:loading.attr='disabled' type="button" class="bg-green-700 text-green-200 px-2 py-1 rounded-md hover:bg-green-800 transition-colors duration-300">
-            <x-icons.spinner class="size-5 fill-green-400 text-green-900 animate-spin" wire:loading wire:target='categoryUpdate'/>
-            <span>Actualizar</span>
+        <button wire:click="genDoc" wire:loading.attr='disabled' type="button" class="bg-blue-700 text-blue-200 px-2 py-1 rounded-md hover:bg-blue-800 transition-colors duration-300">
+            <x-icons.spinner class="size-5 fill-blue-400 text-blue-900 animate-spin" wire:loading wire:target='genDoc'/>
+            <span>Descargar reporte</span>
         </button>
     </x-slot>
 </x-modal>
