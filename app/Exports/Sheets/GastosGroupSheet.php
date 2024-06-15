@@ -24,7 +24,7 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-class GastosGroupSheet implements FromQuery,ShouldAutoSize,WithMapping,WithHeadings,WithColumnFormatting,WithTitle,WithEvents,WithCharts
+class GastosGroupSheet implements FromQuery,ShouldAutoSize,WithMapping,WithHeadings,WithColumnFormatting,WithTitle,WithEvents
 {
     use RegistersEventListeners;
     public $rango;
@@ -49,23 +49,6 @@ class GastosGroupSheet implements FromQuery,ShouldAutoSize,WithMapping,WithHeadi
     public function query()
     {
         return Gastos::selectRaw('categori_id,SUM(cantidad) AS total')->whereBetween('date',$this->rango)->groupBy('categori_id');
-    }
-    public function charts()
-    {
-        $label      = [new DataSeriesValues('String', 'Categorias!$A$2:$A:$5', null, 1)];
-        //$categories = [new DataSeriesValues('String', 'Categorias!$A$2:$A$5', null, 4)];
-        $values     = [new DataSeriesValues('Number', 'Categorias!$B$2:$B$5', null, 4)];
-
-        $series = new DataSeries(DataSeries::TYPE_PIECHART, DataSeries::GROUPING_STANDARD,
-            range(0, \count($values) - 1), $label, [], $values);
-        $plot   = new PlotArea(null, [$series]);
-
-        $legend = new Legend();
-        $chart  = new Chart('chart name', new Title('chart title'), $legend, $plot);
-        $chart->setTopLeftPosition('F12');
-        $chart->setBottomRightPosition('M20');
-
-    return $chart;
     }
     public function afterSheet(AfterSheet $event){
         $headers='A1:B1';
